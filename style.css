@@ -1,0 +1,623 @@
+:root {
+    --bur: #5a0f1f;
+    --bur-d: #2b0610;
+    --gold: #c9a24b;
+    --gold-l: #e8d396;
+    --navy: #14213d;
+    --forest: #1f3d2e;
+    --ivory: #f3ebdd;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+
+body {
+    margin: 0;
+    background: var(--bur-d);
+    color: var(--ivory);
+    font: 300 1.05rem/1.75 Jost, system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 300;
+    line-height: 1.1;
+    margin: 0;
+}
+
+h2 {
+    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    color: var(--gold-l);
+    margin-bottom: 1.2rem;
+}
+
+h3 {
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: var(--gold-l);
+}
+
+a {
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+#prog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(90deg, var(--gold), var(--gold-l));
+    z-index: 30;
+}
+
+nav {
+    position: fixed;
+    top: 2px;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 4vw;
+    padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+    transition: background .8s, backdrop-filter .8s;
+}
+
+nav.on {
+    background: rgba(43, 6, 16, .88);
+    backdrop-filter: blur(8px);
+}
+
+nav .logo {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: .08em;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul a {
+    text-decoration: none;
+    font-size: .9rem;
+    letter-spacing: .12em;
+    position: relative;
+    padding: .3rem 0;
+}
+
+nav ul a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background: var(--gold);
+    transition: width .6s cubic-bezier(.2, .7, .2, 1);
+}
+
+nav ul a:hover::after,
+nav ul a.act::after {
+    width: 100%;
+}
+
+section {
+    padding: 9rem 8vw;
+    position: relative;
+}
+
+.wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.rule {
+    width: 80px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 0 2rem;
+}
+
+#domov {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 40%, var(--bur) 0%, var(--bur-d) 70%);
+}
+
+.dial {
+    position: absolute;
+    width: min(94vw, 900px);
+    aspect-ratio: 800/520;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    will-change: transform, opacity;
+}
+
+.dial svg {
+    width: 100%;
+    height: 100%;
+    stroke-opacity: .28;
+    filter: drop-shadow(0 0 8px rgba(201, 162, 75, .35));
+    animation: glow 7s 4.5s ease-in-out infinite;
+}
+
+.w {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 2.8s cubic-bezier(.4, 0, .2, 1) forwards;
+    animation-delay: var(--d);
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes glow {
+    50% {
+        stroke-opacity: .42;
+    }
+}
+
+.hero-t {
+    position: relative;
+    z-index: 2;
+    padding: 0 1rem;
+}
+
+.hero-t::before {
+    content: "";
+    position: absolute;
+    inset: -7rem -5rem;
+    z-index: -1;
+    background: radial-gradient(ellipse at center, rgba(43, 6, 16, .92) 0%, rgba(43, 6, 16, .7) 40%, transparent 72%);
+}
+
+.hero-t h1 {
+    font-size: clamp(2.4rem, 8.5vw, 7rem);
+    color: var(--ivory);
+    letter-spacing: .02em;
+    text-shadow: 0 2px 28px rgba(43, 6, 16, .95);
+}
+
+.hero-t h1 span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: up 2.2s cubic-bezier(.2, .7, .2, 1) forwards;
+}
+
+.hero-t p {
+    font-size: 1.1rem;
+    letter-spacing: .28em;
+    color: var(--gold);
+    opacity: 0;
+    animation: fade 2.4s 1.6s forwards;
+    margin: 1.6rem 0 0;
+    font-weight: 400;
+    text-shadow: 0 1px 12px rgba(43, 6, 16, .95);
+}
+
+.hero-t .rule {
+    margin: 2rem auto;
+    width: 0;
+    animation: grow 2s 1.2s forwards;
+}
+
+@keyframes up {
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fade {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes grow {
+    to {
+        width: 120px;
+    }
+}
+
+.cue {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    width: 1px;
+    height: 70px;
+    background: linear-gradient(var(--gold), transparent);
+    animation: fade 2s 2.6s forwards;
+    opacity: 0;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 2.8rem;
+    padding: 1rem 3rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: .2em;
+    opacity: 0;
+    animation: fade 2s 2.4s forwards;
+    transition: background .8s, color .8s;
+}
+
+.btn:hover {
+    background: var(--gold);
+    color: var(--bur-d);
+}
+
+.rv {
+    opacity: 0;
+    transform: translateY(34px);
+    transition: opacity 1.6s cubic-bezier(.2, .7, .2, 1), transform 1.6s cubic-bezier(.2, .7, .2, 1);
+}
+
+.rv.in {
+    opacity: 1;
+    transform: none;
+}
+
+.d1 {
+    transition-delay: .2s;
+}
+
+.d2 {
+    transition-delay: .4s;
+}
+
+.d3 {
+    transition-delay: .6s;
+}
+
+#o-mne {
+    background: var(--bur);
+}
+
+.two {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.portrait {
+    aspect-ratio: 3/4;
+    border: 1px solid var(--gold);
+    padding: 14px;
+    position: relative;
+}
+
+.portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(.95) contrast(1.02);
+}
+
+.facts {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.facts b {
+    display: block;
+    font: 300 3rem "Cormorant Garamond", Georgia, serif;
+    color: var(--gold);
+}
+
+#dovednosti {
+    background: var(--navy);
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem 5rem;
+    margin-top: 3rem;
+}
+
+.sk {
+    display: flex;
+    justify-content: space-between;
+    font-size: .95rem;
+    letter-spacing: .06em;
+}
+
+.bar {
+    height: 1px;
+    background: rgba(232, 211, 150, .25);
+    margin-top: .5rem;
+    position: relative;
+}
+
+.bar i {
+    position: absolute;
+    left: 0;
+    top: -1px;
+    height: 3px;
+    width: 0;
+    background: var(--gold);
+    transition: width 2.4s cubic-bezier(.2, .7, .2, 1);
+}
+
+.exp {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.exp div {
+    border-top: 1px solid var(--gold);
+    padding-top: 1.2rem;
+}
+
+.exp small {
+    color: var(--gold);
+    letter-spacing: .1em;
+}
+
+#pribeh {
+    background: var(--forest);
+}
+
+.tl {
+    position: relative;
+    margin-top: 4rem;
+    padding-left: 3rem;
+}
+
+.tl::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(201, 162, 75, .25);
+}
+
+.tl .line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 0;
+    background: var(--gold);
+}
+
+.ev {
+    position: relative;
+    margin-bottom: 4rem;
+    max-width: 640px;
+}
+
+.ev::before {
+    content: "";
+    position: absolute;
+    left: -3.35rem;
+    top: .7rem;
+    width: 11px;
+    height: 11px;
+    border: 1px solid var(--gold);
+    background: var(--forest);
+    transform: rotate(45deg);
+    transition: background 1s;
+}
+
+.ev.in::before {
+    background: var(--gold);
+}
+
+.ev small {
+    color: var(--gold);
+    letter-spacing: .14em;
+}
+
+#portfolio {
+    background: var(--bur-d);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.card {
+    position: relative;
+    min-height: 320px;
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    border: 1px solid rgba(201, 162, 75, .35);
+    background: var(--bur);
+    text-decoration: none;
+}
+
+.card:nth-child(2) {
+    background: var(--navy);
+}
+
+.card:nth-child(3) {
+    background: var(--forest);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(232, 211, 150, .18) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 1.4s cubic-bezier(.2, .7, .2, 1);
+}
+
+.card:hover::before {
+    transform: translateX(120%);
+}
+
+.card:hover {
+    border-color: var(--gold);
+}
+
+.card p {
+    margin: .5rem 0 0;
+    max-width: 34ch;
+}
+
+.card small {
+    color: var(--gold);
+    letter-spacing: .1em;
+}
+
+#kontakt {
+    background: radial-gradient(ellipse at 50% 100%, var(--bur) 0%, var(--bur-d) 75%);
+    text-align: center;
+}
+
+#kontakt .rule {
+    margin: 0 auto 2rem;
+}
+
+#kontakt p {
+    max-width: 46ch;
+    margin: 0 auto 2rem;
+}
+
+.mail {
+    font: 300 clamp(1.6rem, 5vw, 3.2rem) "Cormorant Garamond", Georgia, serif;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+}
+
+.cf {
+    max-width: 520px;
+    margin: 4rem auto 0;
+    display: grid;
+    gap: 1.2rem;
+    text-align: left;
+}
+
+.cf input,
+.cf textarea {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(232, 211, 150, .4);
+    color: var(--ivory);
+    font: inherit;
+    padding: .8rem 0;
+    border-radius: 0;
+}
+
+.cf input:focus,
+.cf textarea:focus {
+    outline: 0;
+    border-color: var(--gold);
+}
+
+.cf button {
+    justify-self: center;
+    margin-top: 1rem;
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 1rem 3rem;
+    font: inherit;
+    letter-spacing: .2em;
+    cursor: pointer;
+    transition: background .8s, color .8s;
+}
+
+.cf button:hover {
+    background: var(--gold);
+    color: var(--bur-d);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: .85rem;
+    color: rgba(243, 235, 221, .5);
+    background: var(--bur-d);
+}
+
+@media (max-width: 820px) {
+    nav ul {
+        display: none;
+    }
+
+    section {
+        padding: 6rem 7vw;
+    }
+
+    .two,
+    .skills,
+    .exp,
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .portrait {
+        max-width: 300px;
+        order: -1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        animation-duration: .01s !important;
+        animation-delay: 0s !important;
+        transition-duration: .01s !important;
+    }
+}
