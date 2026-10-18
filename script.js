@@ -68,6 +68,6 @@
             document.getElementById('f-m').value + '\n\n' +
             document.getElementById('f-n').value + ' (' + document.getElementById('f-e').value + ')'
         );
-        location.href = 'mailto:info@webovkyhudec.cz?subject=' + encodeURIComponent('Poptávka webu') + '&body=' + b;
+        location.href = 'mailto:damihudec@gmail.com?subject=' + encodeURIComponent('Poptávka webu') + '&body=' + b;
     };
 })();
