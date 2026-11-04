@@ -4,7 +4,7 @@ Osobní web a portfolio **Webovky Hudec** – weby na míru, které prodávají.
 
 **Živá ukázka:** https://hudecdamian.github.io/webovkyhudec/
 
-![Náhled webu](screenshotsdesktop.png)
+![Náhled webu](https://github.com/hudecdamian/webovkyhudec/blob/main/img/screenshotsdesktop.png)
 
 ## Co web umí
 
