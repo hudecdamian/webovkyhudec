@@ -55,7 +55,7 @@ Stačí stáhnout repozitář a otevřít `index.html` v prohlížeči. Není po
 
 ```bash
 git clone https://github.com/hudecdamian/webovkyhudec.git
-cd https://github.com/hudecdamian/webovkyhudec
+cd webovkyhudec
 ```
 
 ## Nasazení
