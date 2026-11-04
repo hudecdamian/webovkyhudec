@@ -1,20 +1,20 @@
 # Webovky Hudec
 
-Osobní web a portfolio **Webovky Hudec** – weby na míru, které prodávají. Postavený ručně v čistém HTML, CSS a JavaScriptu, bez frameworků a šablon.
+Osobní web a portfolio **Webovky Hudec** - weby na míru, které prodávají. Postavený ručně v čistém HTML, CSS a JavaScriptu, bez frameworků a šablon.
 
 **Živá ukázka:** https://hudecdamian.github.io/webovkyhudec/
 
-![Náhled webu](screenshotsdesktop.png)
+![Náhled webu](https://github.com/hudecdamian/webovkyhudec/blob/main/img/screenshotsdesktop.png)
 
 ## Co web umí
 
-- **Plně responzivní** – od 320 px (malý mobil) přes tablet a laptop až po 4K monitory (2560 px a víc)
+- **Plně responzivní** - od 320 px (malý mobil) přes tablet a laptop až po 4K monitory (2560 px a víc)
 - **Mobilní menu** s hamburgerem a ovládáním klávesnicí (Esc zavře menu)
-- **Animace bez knihoven** – kreslení drátěného modelu webu v hero sekci, postupné odhalování obsahu při scrollu, animované ukazatele dovedností a časová osa
+- **Animace bez knihoven** - kreslení drátěného modelu webu v hero sekci, postupné odhalování obsahu při scrollu, animované ukazatele dovedností a časová osa
 - **Ukazatel postupu** při scrollu a zvýraznění aktivní sekce v navigaci
 - **Kontaktní formulář** přes `mailto:` (bez serveru)
-- **Přístupnost** – viditelný focus, popisky formulářových polí, respektování `prefers-reduced-motion`
-- **Rychlost** – žádné závislosti kromě písem Google Fonts
+- **Přístupnost** - viditelný focus, popisky formulářových polí, respektování `prefers-reduced-motion`
+- **Rychlost** - žádné závislosti kromě písem Google Fonts
 
 ## Použité technologie
 
