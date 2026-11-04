@@ -54,8 +54,8 @@ Celý web se škáluje přes `rem`, takže na velkých monitorech stačí změni
 Stačí stáhnout repozitář a otevřít `index.html` v prohlížeči. Není potřeba nic instalovat.
 
 ```bash
-git clone https://github.com/hudecdamian/NAZEV-REPOZITARE.git
-cd NAZEV-REPOZITARE
+git clone https://github.com/hudecdamian/webovkyhudec.git
+cd webovkyhudec
 ```
 
 ## Nasazení
