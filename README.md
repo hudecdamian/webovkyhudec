@@ -2,7 +2,7 @@
 
 Osobní web a portfolio **Webovky Hudec** – weby na míru, které prodávají. Postavený ručně v čistém HTML, CSS a JavaScriptu, bez frameworků a šablon.
 
-**Živá ukázka:** [DOPLŇ ODKAZ NA GITHUB PAGES](https://hudecdamian.github.io/NAZEV-REPOZITARE/)
+**Živá ukázka:** https://hudecdamian.github.io/webovkyhudec/
 
 ![Náhled webu](screenshots/desktop.png)
 
